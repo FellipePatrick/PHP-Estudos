@@ -1,5 +1,5 @@
 <?php
-    include_once("conexao.php");;
+    include_once("conectar.php");;
 ?>
 
 
@@ -19,8 +19,8 @@
                 <th>CIDADE</th>  
             </tr>
             <?php
-                $pesquisa = $_POST['cidade'];
-                $sql = "SELECT * FROM Usuarios WHERE cidade = '$pesquisa'";
+        
+                $sql = "SELECT * FROM usuarios";
                 $resultado = mysqli_query($conexao,$sql);
                 while ($registro = mysqli_fetch_array($resultado))
                     {
@@ -37,5 +37,10 @@
                     echo "</table>";
             ?>
         </table>
+        <form name="exclui" action="exclui.php" method="post">
+            <p>Digite o nome que deseja excluir:
+            <input type="text" name="nome"></p>
+            <input type="submit" name="botao" value="Enviar">
+        </form>
     </body>
 </html>

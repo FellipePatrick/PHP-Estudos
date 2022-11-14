@@ -1,7 +1,15 @@
 <?php
-    include_once("conexao.php");;
-?>
+    include_once("conectar.php");
+    $nome = $_POST['nome'];
 
+    $sql = "DELETE FROM usuarios WHERE nome = '$nome'";
+
+    $resultado = mysqli_query($conexao, $sql);
+
+    echo "Exclusao realizada";
+
+    mysqli_close($conexao);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,18 +17,17 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Resultado da Pesquisa</title>
+        <title>Document</title>
     </head>
     <body>
-        <table   border="1" width="50%">
+    <table   border="1" width="50%">
             <tr>
                 <th>NOME</th> 
                 <th>ENDEREÇO</th>
                 <th>CIDADE</th>  
             </tr>
             <?php
-                $pesquisa = $_POST['cidade'];
-                $sql = "SELECT * FROM Usuarios WHERE cidade = '$pesquisa'";
+                $sql = "SELECT * FROM usuarios";
                 $resultado = mysqli_query($conexao,$sql);
                 while ($registro = mysqli_fetch_array($resultado))
                     {
