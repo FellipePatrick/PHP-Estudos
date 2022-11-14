@@ -20,6 +20,19 @@
             deposita(500);
             sacar(150);
             echo "Novo saldo é: ".$saldo;
+
+            //Função recursiva
+            function calculaf($numf)
+            {
+                if($numf <= 1){
+                    $numf = $numf;
+                }else {
+                    $numf *= calculaf($numf-1);
+                }
+                return $numf;
+            }
+            $num = 4;
+            echo "<br>".calculaf($num);
         ?>
     </body>
 </html>
